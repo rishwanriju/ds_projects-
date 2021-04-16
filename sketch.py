@@ -1,9 +1,9 @@
 import numpy as np
 import imageio
 import cv2
-import scipy.ndimage
+import scipy.ndimage 
 
-img = "riz.jpg"
+img = "riz.jpeg"
 
 
 def grayscale(rgb):
@@ -21,5 +21,6 @@ s = imageio.imread(img)
 g = grayscale(s)
 i = 255-g
 
-b = scipy.ndimage.filter.gaussian_filter(i, sigma=10)
+b = scipy.ndimage.filters.gaussian_filter(i, sigma = 5000)
 r = dodge(b, g)
+cv2.imwrite('riz.jpg', r)
